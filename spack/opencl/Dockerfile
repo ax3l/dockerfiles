@@ -28,4 +28,4 @@ RUN        git clone --depth 50 https://github.com/llnl/spack.git \
            $HOME/src/spack/
 
 # install PIConGPU dependencies
-RUN        spack install pocl
+#RUN        spack install pocl
