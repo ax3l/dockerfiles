@@ -2,16 +2,12 @@ Bootstrap: docker
 From: ubuntu:16.04
 
 %post
-# from a Dockerfile:
-#   a non-priviledged user for a service/daemon
-#   that only exists inside this container
-groupadd -r myuser -g 901
-useradd -u 901 -r -m -g myuser myuser
-find /home/myuser -type d -exec chmod a+rwx {} \;
+mkdir /home/something
+find /home/something -type d -exec chmod a+rwx {} \;
 
 %runscript
-exec /bin/bash -c 'cd /home/myuser && /bin/bash -l'
-# now write into the above user's home
+exec /bin/bash -c 'cd /home/something && /bin/bash -l'
+# now write into the directory above
 # dd if=/dev/zero bs=1M count=1024 of=aa
 #
 # df -h
