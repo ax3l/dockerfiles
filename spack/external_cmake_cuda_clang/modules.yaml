@@ -1,0 +1,15 @@
+modules:
+  enable::
+    - lmod
+  lmod:
+    core_compilers:
+      - 'clang@3.9.1'
+    hash_length: 0
+    clang:
+      environment:
+        set:
+          CC: clang
+          CXX: clang++
+          FC: gfortran
+          F90: gfortran
+          F77: gfortran
