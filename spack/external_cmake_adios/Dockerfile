@@ -9,13 +9,14 @@ ENV        DEBIAN_FRONTEND=noninteractive \
 ENV        PATH "$HOME/src/spack/bin:$PATH"
 COPY       packages.yaml $HOME/.spack/packages.yaml
 
-# install minimal spack dependencies
+# install minimal spack & OpenMPI dependencies
 RUN        apt-get update \
            && apt-get install -y --no-install-recommends \
               autoconf \
               ca-certificates \
               cmake \
               curl \
+              gfortran \
               git \
               build-essential \
               pkg-config \
