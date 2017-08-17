@@ -5,7 +5,7 @@ ENV        DEBIAN_FRONTEND=noninteractive \
            SPACK_ROOT=/usr/local \
            FORCE_UNSAFE_CONFIGURE=1
 
-# install minimal spack & OpenMPI dependencies
+# install minimal spack
 RUN        apt-get update \
            && apt-get install -y --no-install-recommends \
               autoconf \
@@ -27,7 +27,11 @@ RUN        echo ". $SPACK_ROOT/share/spack/setup-env.sh" \
            > /etc/profile.d/spack.sh
 
 # install software
-RUN        spack install tar
+RUN        spack install tar \
+           && spack clean -a
+
+# need the modules?
+RUN        /bin/bash -l -c 'spack load tar && which tar'
 
 # startup
 CMD        /bin/bash -l
