@@ -30,7 +30,7 @@ RUN        echo "source $SPACK_ROOT/share/spack/setup-env.sh" \
 COPY    packages.yaml $SPACK_ROOT/etc/spack/
 
 # install spack
-RUN        curl -s -L https://api.github.com/repos/llnl/spack/tarball \
+RUN        curl -s -L https://github.com/llnl/spack/archive/develop.tar.gz \
            | tar xzC $SPACK_ROOT --strip 1
 # note: at this point one could also run ``spack bootstrap`` to avoid
 #       parts of the long apt-get install list above
