@@ -27,4 +27,6 @@ RUN        git clone --depth=50 https://github.com/SimeonEhrig/CUDA-Runtime-Inte
            && mkdir /root/cri/build \
            && cd /root/cri/build \
            && cmake .. \
-           && make -j2
+           && make -j2 \
+           && cp cuda-interpreter /usr/bin \
+           && cp ../*.sh /usr/bin
