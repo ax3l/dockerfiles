@@ -1,0 +1,7 @@
+packages:
+  cmake:
+    version: [3.5.1]
+    paths:
+      cmake@3.5.1 %gcc: /usr
+      cmake@3.5.1 %clang: /usr
+    buildable: False
